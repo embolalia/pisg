@@ -624,6 +624,8 @@ sub _activenicks
             $output .= '<span class="female">';
         } elsif ($sex and $sex eq 'b') {
             $output .= '<span class="bot">';
+        } elsif ($sex and $sex eq 'o') {
+            $output .= '<span class="othergender">';
         } else {
             $output .= '<span>';
         }
@@ -709,6 +711,8 @@ sub _activenicks
                     $output .= "<span class=\"female\">";
                 } elsif ($sex and $sex eq 'b') {
                     $output .= "<span class=\"bot\">";
+                } elsif ($sex and $sex eq 'o') {
+                    $output .= "<span class=\"othergender\">";
                 } else {
                     $output .= "<span>";
                 }
@@ -2467,7 +2471,7 @@ sub _activegenders {
             $self->_trimlist(@top_active);
 
         my $class = ($i == 1 ? "hirankc" : "rankc");
-        my $span_class = $gender eq 'm' ? "male" : ($gender eq 'f' ? "female" : "bot");
+        my $span_class = $gender eq 'm' ? "male" : ($gender eq 'f' ? "female" : ($gender eq 'o' ? "othergender" :"bot"));
         _html("</tr><tr>");
         _html(" <td class=\"$class\" align=\"left\">$i</td>");
         _html(" <td class=\"hicell\"><span class=\"$span_class\">" . $self->_template_text("gender_$gender") . "</span></td>");
