@@ -321,7 +321,7 @@ sub init_config
                 add_ignore($nick);
             }
 
-            if ($line =~ /\bsex=(["'])([MmFfBb])\1/) {
+            if ($line =~ /\bsex=(["'])([MmFfBbOo])\1/) {
                 $self->{users}->{sex}{$nick} = lc($2);
             }
         } elsif ($line =~ /<link(.*)>/) {

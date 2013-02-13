@@ -48,10 +48,11 @@ my $txtnick     = "Nickname";
 my $txtalias    = "Alias(es)";
 my $txturl      = "URL/E-Mail";
 my $txtpic      = "Userpic";
-my $txtsex      = "Sex";
+my $txtsex      = "Gender";
 my $txtmale     = "M";
 my $txtfemale   = "F";
 my $txtbot      = "B";
+my $txtother    = "O";
 my $txtignore   = "Ignore me";
 my $btnsubmit   = "Submit";
 my $btnupdate   = "Update";
@@ -85,7 +86,7 @@ $path =~ s!^/!!;
 my (%oldnicks, @users, @nick);
 my ($frm_nick, $frm_alias, $frm_link, $frm_pic, $frm_sex, $frm_ignore);
 my ($old_nick, $old_alias, $old_link, $old_pic, $old_sex, $old_ignore);
-my ($old_sexm, $old_sexf, $old_sexb, $old_ignr);
+my ($old_sexm, $old_sexf, $old_sexb, $oldsexo, $old_ignr);
 my ($cfg, $fnd);
 my ($submitbtn, $frmaction);
 
@@ -209,7 +210,7 @@ print <<HTML
     </tr>
     <tr>
      <td><b>$txtsex</b></td>
-     <td>$txtmale<input type="radio" name="sex" value="m" $old_sexm>$txtfemale<input type="radio" name="sex" value="f" $old_sexf>$txtbot<input type="radio" name="sex" value="b" $old_sexb></td>
+     <td>$txtmale<input type="radio" name="sex" value="m" $old_sexm>$txtfemale<input type="radio" name="sex" value="f" $old_sexf>$txtbot<input type="radio" name="sex" value="b" $old_sexb>$txtother<input type="radio" name="sex" value="o" $oldsexo</td>
     </tr>
     <tr>
      <td><b>$txtignore</B></td>
@@ -377,6 +378,9 @@ sub check_if_found
         elsif ($old_sex eq "b" or $old_sex eq "B"){
             $old_sexb = "checked";
         }
+        elsif ($old_sex eq "o" or $old_sex eq "O"){
+            $old_sexo = "checked";
+        }
         if ($old_ignore eq "1"){
             $old_ignr = "checked";
         }
@@ -426,6 +430,9 @@ sub addinfo
     }
     elsif ($old_sex eq "b" or $old_sex eq "B"){
         $old_sexb = "checked";
+    }
+    elsif ($old_sex eq "o" or $old_sex eq "O"){
+        $old_sexo = "checked";
     }
     if ($old_ignore eq "1"){
         $old_ignr = "checked";
@@ -487,6 +494,9 @@ sub updateinfo
     }
     elsif ($old_sex eq "b" or $old_sex eq "B"){
         $old_sexb = "checked";
+    }
+    elsif ($old_sex eq "o" or $old_sex eq "O"){
+        $old_sexo = "checked";
     }
     if ($old_ignore eq "1"){
         $old_ignr = "checked";
