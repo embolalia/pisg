@@ -210,7 +210,7 @@ print <<HTML
     </tr>
     <tr>
      <td><b>$txtsex</b></td>
-     <td>$txtmale<input type="radio" name="sex" value="m" $old_sexm>$txtfemale<input type="radio" name="sex" value="f" $old_sexf>$txtbot<input type="radio" name="sex" value="b" $old_sexb>$txtother<input type="radio" name="sex" value="o" $oldsexo</td>
+     <td>$txtmale<input type="radio" name="sex" value="m" $old_sexm>$txtfemale<input type="radio" name="sex" value="f" $old_sexf>$txtbot<input type="radio" name="sex" value="b" $old_sexb>$txtother<input type="radio" name="sex" value="o" $oldsexo></td>
     </tr>
     <tr>
      <td><b>$txtignore</B></td>
