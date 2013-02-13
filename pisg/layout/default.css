@@ -45,6 +45,9 @@ td {
 .bot, .bot a {
 	color: #00FFFF;
 }
+.othergender, .othergender a {
+	color: #870f7a;
+}
 .title {
 	font-family: Tahoma, Arial, sans-serif;
 	font-size: 16px;
